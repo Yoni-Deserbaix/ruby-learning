@@ -23,14 +23,17 @@ class LogLineParser
   end
 
   def message
+    # remove text between square brackets and spaces
     @line.split(": ")[1].strip
   end
 
   def log_level
+    # downcase text between square brackets
     @line.split("[")[1].split("]")[0].downcase
   end
 
   def reformat
+    # Concatenation of functions
     "#{message} (#{log_level})"
   end
 end
